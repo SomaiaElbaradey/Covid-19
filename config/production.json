@@ -1,2 +1,7 @@
 {
+    "jwtKey": "covidKey",
+    "name": "covid19",
+    "host": "localhost",
+    "port": "2939",
+    "redis_local_host": "127.0.0.1"
 }
