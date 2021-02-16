@@ -16,7 +16,7 @@ const userRouter = require('./routes/user');
 const countryRouter = require('./routes/country');
 
 app.get("/*", (req, res)=>{
-    res.sendFile(path.join(__dirname, "/dist/Covid19Front/index.html"));
+    res.sendFile(process.cwd() + "/dist/Covid19Front/index.html");
 })
 app.use(express.static('public'));
 app.use(express.json());
