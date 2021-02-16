@@ -4,7 +4,7 @@ const { users } = require('../models/user')
 
 module.exports.getCountries = async function (req, res) {
     const allCountries = await countries.find({}, {
-        _id: 0, country: 1, population: 1, country_iso2: 1, deaths: 1,
+        _id: 1, country: 1, population: 1, country_iso2: 1, deaths: 1,
         recovered: 1, confirmed: 1
     })
     res.send(allCountries)
@@ -25,21 +25,17 @@ module.exports.getFavCountries = async function (req, res) {
             recovered: 1, confirmed: 1
         })
     }
-
     res.send(showFav);
 }
 
 module.exports.addFavCountry = async function (req, res) {
-    let  CountryID  = req.params.id;
-    let user = await users.findOne({ _id: req.user._id });
+    let CountryID = req.params.id;
+    const { _id } = req.user;
+    const user = await users.findOne({ _id });
     if (!user) return res.status(404).send('the user with given id not existed.');
-
-    for (let i = 0; i < user['favoriteCountries'].length; i++) {
-        if(user['favoriteCountries'][i] == CountryID) return res.status(404).send('the country with given id already exists.');
-    }
-    
-    const favCountries = user['favoriteCountries'].concat(CountryID)
-    await users.updateOne({_id: req.user._id}, { $set: { favoriteCountries: favCountries }});
-    
+    let favoriteCountries = await users.findOneAndUpdate({ _id }, { $addToSet: { favoriteCountries: [CountryID] } }, {
+        new: true
+    });
+    if (!favoriteCountries) throw new Error('unable to add the country');
     res.status(200).send('the country is added.');
 }

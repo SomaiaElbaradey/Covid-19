@@ -27,7 +27,7 @@ module.exports.registration = async function (req, res) {
 
     //Checkin if the username exists
     let user = await users.findOne({ username: req.body.username });
-    if (user) return res.status(409).send("userName already exists.");
+    if (user) return res.status(409).send("username already exists.");
 
     //save the user in Database
     let new_user = new users({
