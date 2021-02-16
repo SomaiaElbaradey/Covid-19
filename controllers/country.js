@@ -10,7 +10,6 @@ module.exports.getCountries = async function (req, res) {
     res.send(allCountries)
 }
 
-
 module.exports.getFavCountries = async function (req, res) {
 
     const user = await users.findOne({ _id: req.user._id });
@@ -21,7 +20,7 @@ module.exports.getFavCountries = async function (req, res) {
     let showFav = new Array;
     for (let i = 0; i < favCountries.length; i++) {
         showFav[i] = await countries.findOne({ _id: favCountries[i] }, {
-            _id: 0, country: 1, population: 1, country_iso2: 1, deaths: 1,
+            _id: 1, country: 1, population: 1, country_iso2: 1, deaths: 1,
             recovered: 1, confirmed: 1
         })
     }
@@ -38,4 +37,15 @@ module.exports.addFavCountry = async function (req, res) {
     });
     if (!favoriteCountries) throw new Error('unable to add the country');
     res.status(200).send('the country is added.');
+}
+
+module.exports.deleteFavCountry = async function (req, res) {
+    let CountryID = req.params.id;
+    const { _id } = req.user;
+    const user = await users.findOne({ _id });
+    if (!user) return res.status(404).send('the user with given id not existed.');
+    let favoriteCountries = await users.findOneAndUpdate({ _id }, { $pull: { favoriteCountries: CountryID } });
+
+    if (!favoriteCountries) throw new Error('unable to remove the country');
+    res.status(200).send('the country is removed.');
 }
