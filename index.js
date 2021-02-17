@@ -26,7 +26,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use(express.static(__dirname + '/dist/Covid19Front'));
+app.use(express.static(__dirname + '/Covid19Front'));
 
 app.use(express.static('public'));
 app.use(express.json());
@@ -35,7 +35,7 @@ app.use(logs);
 app.use('/api/user', userRouter);
 app.use('/api/country', countryRouter)
 app.get('/*', function (req, res) {
-    res.sendFile(path.join(__dirname + '/dist/Covid19Front/index.html'));
+    res.sendFile(path.join(__dirname + '/Covid19Front/index.html'));
 });
 
 app.use(error);
