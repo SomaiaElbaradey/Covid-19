@@ -8,7 +8,7 @@ COVID-19 is a simple MEAN Stack application to show the latest COVID-19 data aro
 <p>Get all the favourite countries</p>
 <p>Delete from the favourite countries</p>
 
-## App functions
+## App Technologies
 <p> Node JS to perform server side </p>
 <p> Angular to make Front-end</p>
 
