@@ -11,14 +11,16 @@ COVID-19 is a simple MEAN Stack application to show the latest COVID-19 data aro
 
 ## App Technologies
 <ul>
-<li> NodeJs to perform server side</li>
-<li> Express.js for the backend</li>
-<li> MongoDB for the database using mongoose driver</li>
-<li> Angular for Front-end</li>
-
-
+<li> Backend development Using (ExpressJs - NodeJS)</li>
+<li> No SQL Database using mongodb</li>
+<li> Front End development using Angular</li>
 </ul>
 
 ## Front-End Repo:  <a href="https://github.com/SomaiaElbaradey/Covid19-Front">COVID-19 Front</a> 
 
 ## Deployed at: <a href="https://coronavirus-worldwide.herokuapp.com/"> COVID-19 </a>
+
+# ScreenShot
+<img src="https://i.ibb.co/pKbV5qX/1.jpg" width="543" height="267" alt="ScreenShoot">
+<img src="https://i.ibb.co/DpHbMDG/2.jpg" width="543" height="267" alt="ScreenShoot">
+<img src="https://i.ibb.co/ckwFwKY/3.jpg" width="543" height="267" alt="ScreenShoot">
