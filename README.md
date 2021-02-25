@@ -29,7 +29,7 @@ COVID-19 is a simple MEAN Stack application to show the latest COVID-19 data aro
   </ol>
 </details>
 
-## About The Project:
+## About The Project
 
 ## App Functionality
 COVID-19 provides many functionalities to the registered user or to the app guest 
