@@ -56,11 +56,11 @@ COVID-19 provides many functionalities to the registered user or to the app gues
 </ul>
 
 ## Getting Started
+
 ## Prerequisites
 Before you start, make sure you have <a href="https://nodejs.org/en/download/">NodeJS</a> installed.
 
 ## Installation
-
 1. Clone the repo
    ```sh
    git clone https://github.com/SomaiaElbaradey/Covid-19.git
